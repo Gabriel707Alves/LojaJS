@@ -1,0 +1,29 @@
+/* =============================================
+   01. VARIÁVEIS E RESET
+============================================= */
+:root {
+    --brand: #2563eb;
+    --brand-dark: #1d4ed8;
+    --text: #111827;
+    --text-light: #6b7280;
+    --bg: #f9fafb;
+    --white: #ffffff;
+    --border: #e5e7eb;
+    --danger: #ef4444;
+    --success: #16a34a;
+
+    --radius: 8px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    --transition: 200ms ease;
+
+    --header-h: 60px;
+    --cart-w: 340px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
