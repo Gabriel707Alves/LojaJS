@@ -37,6 +37,138 @@
 
         </div>
     </header>
+
+
+    <!-- ===== PRODUTOS ===== -->
+    <main class="container" id="main">
+
+        <section class="products-section">
+            <h1 class="section-title">Produtos</h1>
+
+            <!-- filtros de categoria -->
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-category="todos">Todos</button>
+                <button class="filter-btn" data-category="tecnologia">Tecnologia</button>
+                <button class="filter-btn" data-category="audio">Áudio</button>
+                <button class="filter-btn" data-category="acessorios">Acessórios</button>
+            </div>
+
+
+            <!-- Grid de produtos: 
+            Nesta sessão eu coloco em prática meus estudos com data-* e atributos. Com isto é possível fazer um sistema futuro de filtragem 
+            -->
+            <div class="products-grid" id="products-grid">
+
+                <!-- Produto 1 -->
+                <article class="product-card" data-id="1" data-name="Fone Bluetooth" data-price="299.90" data-category="audio">
+                    <div class="product-img">🎧</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Áudio</span>
+                        <h2 class="product-name">Fone Bluetooth</h2>
+                        <p class="product-price">R$ 299,90</p>
+                    </div>
+                    <!-- JS: capturar clique e adicionar produto ao carrinho -->
+                    <button class="add-btn" data-id="1">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 2 -->
+                <article class="product-card" data-id="2" data-name="Teclado Mecânico" data-price="459.90"
+                    data-category="tecnologia">
+                    <div class="product-img">⌨️</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Tecnologia</span>
+                        <h2 class="product-name">Teclado Mecânico</h2>
+                        <p class="product-price">R$ 459,90</p>
+                    </div>
+                    <button class="add-btn" data-id="2">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 3 -->
+                <article class="product-card" data-id="3" data-name="Mouse Sem Fio" data-price="189.90"
+                    data-category="tecnologia">
+                    <div class="product-img">🖱️</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Tecnologia</span>
+                        <h2 class="product-name">Mouse Sem Fio</h2>
+                        <p class="product-price">R$ 189,90</p>
+                    </div>
+                    <button class="add-btn" data-id="3">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 4 -->
+                <article class="product-card" data-id="4" data-name="Webcam HD" data-price="349.90"
+                    data-category="tecnologia">
+                    <div class="product-img">📷</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Tecnologia</span>
+                        <h2 class="product-name">Webcam HD</h2>
+                        <p class="product-price">R$ 349,90</p>
+                    </div>
+                    <button class="add-btn" data-id="4">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 5 -->
+                <article class="product-card" data-id="5" data-name="Caixa de Som" data-price="399.90"
+                    data-category="audio">
+                    <div class="product-img">🔊</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Áudio</span>
+                        <h2 class="product-name">Caixa de Som</h2>
+                        <p class="product-price">R$ 399,90</p>
+                    </div>
+                    <button class="add-btn" data-id="5">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 6 -->
+                <article class="product-card" data-id="6" data-name="Mousepad XL" data-price="89.90"
+                    data-category="acessorios">
+                    <div class="product-img">🖱️</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Acessórios</span>
+                        <h2 class="product-name">Mousepad XL</h2>
+                        <p class="product-price">R$ 89,90</p>
+                    </div>
+                    <button class="add-btn" data-id="6">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 7 -->
+                <article class="product-card" data-id="7" data-name="Hub USB-C" data-price="159.90"
+                    data-category="acessorios">
+                    <div class="product-img">🔌</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Acessórios</span>
+                        <h2 class="product-name">Hub USB-C</h2>
+                        <p class="product-price">R$ 159,90</p>
+                    </div>
+                    <button class="add-btn" data-id="7">+ Adicionar</button>
+                </article>
+
+                <!-- Produto 8 -->
+                <article class="product-card" data-id="8" data-name="Suporte Notebook" data-price="129.90"
+                    data-category="acessorios">
+                    <div class="product-img">💻</div>
+                    <!-- Informações do produto: Categoria, nome e preço -->
+                    <div class="product-info">
+                        <span class="product-category">Acessórios</span>
+                        <h2 class="product-name">Suporte Notebook</h2>
+                        <p class="product-price">R$ 129,90</p>
+                    </div>
+                    <button class="add-btn" data-id="8">+ Adicionar</button>
+                </article>
+
+            </div>
+            <!-- /products-grid -->
+
+        </section>
+
+    </main>
 </body>
 
 </html>
