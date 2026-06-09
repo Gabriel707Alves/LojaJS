@@ -187,3 +187,133 @@ img {
     justify-content: center;
     padding: 0 4px;
 }
+
+
+/* =============================================
+   04. SEÇÃO DE PRODUTOS
+============================================= */
+#main {
+    padding-top: 32px;
+    padding-bottom: 64px;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Filtros de categoria */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.filter-btn {
+    padding: 6px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 99px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-light);
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+}
+
+/* JS: alternar esta classe ao clicar no filtro */
+.filter-btn.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--white);
+}
+
+/* Grade: 1 coluna no mobile */
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+
+/* =============================================
+   05. PRODUCT CARD
+============================================= */
+.product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+/* imagem do produto */
+.product-img {
+    font-size: 3rem;
+    text-align: center;
+    padding: 16px 0;
+    background: var(--bg);
+    border-radius: var(--radius);
+}
+
+/* Categoria do produto */
+.product-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand);
+}
+
+/* Nome do produto */
+.product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+/* Preço do produto */
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Botão Adicionar */
+.add-btn {
+    margin-top: auto;
+    padding: 10px;
+    background: var(--brand);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.add-btn:hover {
+    background: var(--brand-dark);
+}
+
+.add-btn:active {
+    transform: scale(0.97);
+}
+
+/* JS: adicionar esta classe quando o produto já está no carrinho */
+.add-btn.added {
+    background: var(--success);
+}
