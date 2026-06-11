@@ -493,16 +493,16 @@ img {
    JS: adicionar/remover classe "visible"
 ============================================= */
 .overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 250;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 250;
 }
 
 /* JS: adicionar esta classe para mostrar o overlay */
 .overlay.visible {
-  display: block;
+    display: block;
 }
 
 
@@ -510,39 +510,39 @@ img {
    10. FOOTER
 ============================================= */
 .footer {
-  background: var(--text);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 24px 0;
+    background: var(--text);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 24px 0;
 }
 
 .footer-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
 }
 
 .footer .logo {
-  color: white;
+    color: white;
 }
 
 .footer p {
-  font-size: 0.85rem;
+    font-size: 0.85rem;
 }
 
 .footer nav {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    gap: 16px;
 }
 
 .footer nav a {
-  font-size: 0.85rem;
-  transition: color var(--transition);
+    font-size: 0.85rem;
+    transition: color var(--transition);
 }
 
 .footer nav a:hover {
-  color: white;
+    color: white;
 }
 
 
@@ -552,5 +552,44 @@ img {
 
 /* JS: usar para ocultar/mostrar elementos */
 .hidden {
-  display: none !important;
+    display: none !important;
+}
+
+
+/* =============================================
+   12. TABLET (768px+)
+============================================= */
+@media (min-width: 768px) {
+
+    .container {
+        padding: 0 24px;
+    }
+
+    /* Menu inline no tablet */
+    .menu-btn {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background: none;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    /* 2 colunas de produto */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer em linha */
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
 }
