@@ -539,6 +539,7 @@ img {
 .footer nav a {
     font-size: 0.85rem;
     transition: color var(--transition);
+    color: var(--text-light);
 }
 
 .footer nav a:hover {
@@ -590,6 +591,28 @@ img {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
+    }
+
+}
+
+
+/* =============================================
+   13. DESKTOP (1024px+)
+============================================= */
+@media (min-width: 1024px) {
+
+    /* 3 colunas de produto */
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (min-width: 1280px) {
+
+    /* 4 colunas de produto em telas grandes */
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 
 }
