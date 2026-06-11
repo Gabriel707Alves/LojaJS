@@ -393,3 +393,96 @@ img {
     color: var(--text-light);
     font-size: 0.95rem;
 }
+
+/* =============================================
+   07. CART ITEM
+   Esta estrutura será criada pelo JS.
+   O CSS já está pronto para receber os elementos.
+
+   Estrutura esperada:
+   <li class="cart-item">
+     <span class="cart-item-name"></span>
+     <div class="cart-item-controls">
+       <button class="qty-btn">−</button>
+       <span class="cart-item-qty"></span>
+       <button class="qty-btn">+</button>
+     </div>
+     <span class="cart-item-price"></span>
+     <button class="remove-btn">🗑</button>
+   </li>
+============================================= */
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 6px 12px;
+    padding: 12px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    align-items: center;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    grid-column: 1;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: right;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    transition: var(--transition);
+    color: var(--text);
+}
+
+.qty-btn:hover {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: white;
+}
+
+.cart-item-qty {
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
+}
+
+.remove-btn {
+    font-size: 1rem;
+    color: var(--text-light);
+    padding: 4px;
+    border-radius: var(--radius);
+    grid-column: 2;
+    grid-row: 2;
+    transition: var(--transition);
+}
+
+.remove-btn:hover {
+    color: var(--danger);
+    background: #fee2e2;
+}
