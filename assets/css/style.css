@@ -486,3 +486,71 @@ img {
     color: var(--danger);
     background: #fee2e2;
 }
+
+
+/* =============================================
+   09. OVERLAY
+   JS: adicionar/remover classe "visible"
+============================================= */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 250;
+}
+
+/* JS: adicionar esta classe para mostrar o overlay */
+.overlay.visible {
+  display: block;
+}
+
+
+/* =============================================
+   10. FOOTER
+============================================= */
+.footer {
+  background: var(--text);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 24px 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer .logo {
+  color: white;
+}
+
+.footer p {
+  font-size: 0.85rem;
+}
+
+.footer nav {
+  display: flex;
+  gap: 16px;
+}
+
+.footer nav a {
+  font-size: 0.85rem;
+  transition: color var(--transition);
+}
+
+.footer nav a:hover {
+  color: white;
+}
+
+
+/* =============================================
+   11. UTILITÁRIOS
+============================================= */
+
+/* JS: usar para ocultar/mostrar elementos */
+.hidden {
+  display: none !important;
+}
