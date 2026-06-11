@@ -60,7 +60,8 @@
             <div class="products-grid" id="products-grid">
 
                 <!-- Produto 1 -->
-                <article class="product-card" data-id="1" data-name="Fone Bluetooth" data-price="299.90" data-category="audio">
+                <article class="product-card" data-id="1" data-name="Fone Bluetooth" data-price="299.90"
+                    data-category="audio">
                     <div class="product-img">🎧</div>
                     <!-- Informações do produto: Categoria, nome e preço -->
                     <div class="product-info">
@@ -169,6 +170,59 @@
         </section>
 
     </main>
+
+    <!-- ===== CARRINHO LATERAL =====
+       JS: adicionar/remover classe "open" para abrir e fechar o carrinho
+  -->
+    <aside class="cart-sidebar" id="cart-sidebar">
+
+        <div class="cart-header">
+            <h2>Carrinho</h2>
+            <!-- JS: fechar carrinho ao clicar -->
+            <button class="close-btn" id="close-cart">✕</button>
+        </div>
+
+        <!--
+      JS: Renderizar estes itens dinamicamente com JS:
+
+      <li class="cart-item" data-id="1">
+        <span class="cart-item-name">Fone Bluetooth</span>
+        <div class="cart-item-controls">
+          <button class="qty-btn" data-action="decrease" data-id="1">−</button>
+          <span class="cart-item-qty">1</span>
+          <button class="qty-btn" data-action="increase" data-id="1">+</button>
+        </div>
+        <span class="cart-item-price">R$ 299,90</span>
+        <button class="remove-btn" data-id="1">🗑</button>
+      </li>
+        -->
+        <ul class="cart-list" id="cart-list">
+            <!-- itens renderizados pelo JS serão adicionados aqui -->
+        </ul>
+
+        <!-- Mensagem de carrinho vazio — JS: mostrar/ocultar com display -->
+        <p class="cart-empty" id="cart-empty">Seu carrinho está vazio.</p>
+
+        <div class="cart-footer">
+            <!-- JS: atualizar valor do total-->
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+
+            <!-- JS Nível 5: campo de cupom -->
+            <div class="coupon-area">
+                <input type="text" id="coupon-input" placeholder="Cupom de desconto" />
+                <button id="coupon-btn">Aplicar</button>
+            </div>
+
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+
+    </aside>
+
+    <!-- JS: fundo escuro ao abrir o carrinho — toggle da classe "visible" -->
+    <div class="overlay" id="overlay"></div>
 </body>
 
 </html>
