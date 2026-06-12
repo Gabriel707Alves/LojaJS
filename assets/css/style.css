@@ -487,6 +487,78 @@ img {
     background: #fee2e2;
 }
 
+/* =============================================
+   08. CART FOOTER
+============================================= */
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.cart-total strong {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Campo de cupom */
+.coupon-area {
+    display: flex;
+    gap: 8px;
+}
+
+.coupon-area input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.coupon-area input:focus {
+    border-color: var(--brand);
+}
+
+.coupon-area button {
+    padding: 8px 14px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.coupon-area button:hover {
+    background: var(--border);
+}
+
+.checkout-btn {
+    padding: 14px;
+    background: var(--brand);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.checkout-btn:hover {
+    background: var(--brand-dark);
+}
+
 
 /* =============================================
    09. OVERLAY
