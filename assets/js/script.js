@@ -27,10 +27,10 @@ menuBtn.addEventListener('click', () => {
 // Selecionar botão de adicionar ao carrinho dos produtos
 const addButton = document.querySelectorAll('.add-btn')
 
+// Evento que adiciona elemento dinamico no carrinho
 addButton.forEach((botao)=>{
     botao.addEventListener("click", ()=>{
 
-        console.log(botao.parentElement);
         // Configurando o elemento pai
         const li = document.createElement('li')
         li.classList.add('cart-item')
@@ -39,7 +39,7 @@ addButton.forEach((botao)=>{
         // Configurando os spans de preço e nome
         const spanNome = document.createElement('span')
         spanNome.classList.add('cart-item-name')
-        spanNome.innerHTML = 'Fone Bluetooth'
+        spanNome.innerHTML = botao.parentElement.dataset.name
 
 
 
@@ -72,7 +72,7 @@ addButton.forEach((botao)=>{
         // Indicador de preço
         const spanPrice = document.createElement('span')
         spanPrice.classList.add('cart-item-price')
-        spanPrice.innerText = 'R$ 299,90'
+        spanPrice.innerText = botao.parentElement.dataset.price
 
         // Botão de remover item do carrinho 
         const removeButton = document.createElement('button')
@@ -89,5 +89,11 @@ addButton.forEach((botao)=>{
         li.appendChild(spanPrice);
         li.appendChild(removeButton);
         
+
+
+        const removeBtn = document.querySelector('.remove-btn')
+        removeBtn.addEventListener('click', ()=>{
+            removeBtn.parentElement.remove(removeBtn)
+        })
     })
 })
