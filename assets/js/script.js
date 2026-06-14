@@ -78,7 +78,7 @@ addButton.forEach((botao)=>{
         const removeButton = document.createElement('button')
         removeButton.classList.add('remove-btn')
         removeButton.innerText = '🗑'
-        removeButton.setAttribute('data-id', '1')
+        removeButton.setAttribute('data-id', botao.parentElement.dataset.id)
 
         // Elemento pai do carrinho
         const cartList = document.getElementById('cart-list')
@@ -91,9 +91,19 @@ addButton.forEach((botao)=>{
         
 
 
-        const removeBtn = document.querySelector('.remove-btn')
-        removeBtn.addEventListener('click', ()=>{
-            removeBtn.parentElement.remove(removeBtn)
-        })
     })
 })
+
+
+// Configurando função do botão de remover itens do carrinho 
+const cartList = document.getElementById('cart-list')
+
+cartList.addEventListener('click', (botao)=>{
+    if (botao.target.classList.contains('remove-btn') === true){
+        botao.target.parentElement.remove(botao)
+    } else {
+
+    }
+    
+})
+
