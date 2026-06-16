@@ -90,6 +90,7 @@ addButton.forEach((botao) => {
         li.appendChild(removeButton);
 
         checkCart()
+        atualizarContador()
 
     })
 })
@@ -102,6 +103,7 @@ cartList.addEventListener('click', (botao) => {
     if (botao.target.classList.contains('remove-btn') === true) {
         botao.target.parentElement.remove(botao)
         checkCart()
+        atualizarContador()
     } else {
 
     }
@@ -118,4 +120,10 @@ function checkCart() {
     } else {
         cartEmpty.classList.remove('hidden')
     }
+}
+
+// Função que atualiza o contador do carrinho 
+const cartCount = document.getElementById('cart-count')
+function atualizarContador(){
+    cartCount.textContent = cartList.childElementCount
 }
