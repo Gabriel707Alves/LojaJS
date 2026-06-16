@@ -10,12 +10,12 @@ const nav = document.getElementById('nav')
 
 
 // Evento de click para abrir carrinho
-cartBtn.addEventListener('click', () =>{
+cartBtn.addEventListener('click', () => {
     cartSidebar.classList.toggle('open')
 })
 
 // evento de click para fechar carrinho
-closeCart.addEventListener('click', () =>{
+closeCart.addEventListener('click', () => {
     cartSidebar.classList.remove('open')
 })
 
@@ -28,8 +28,8 @@ menuBtn.addEventListener('click', () => {
 const addButton = document.querySelectorAll('.add-btn')
 
 // Evento que adiciona elemento dinamico no carrinho
-addButton.forEach((botao)=>{
-    botao.addEventListener("click", ()=>{
+addButton.forEach((botao) => {
+    botao.addEventListener("click", () => {
 
         // Configurando o elemento pai
         const li = document.createElement('li')
@@ -60,7 +60,7 @@ addButton.forEach((botao)=>{
         spanQty.classList.add('cart-item-qty')
         spanQty.innerText = '1'
         cartControls.appendChild(spanQty);
-        
+
         // botão de incremento
         const button_Increase = document.createElement('button')
         button_Increase.classList.add('qty-btn')
@@ -88,8 +88,8 @@ addButton.forEach((botao)=>{
         li.appendChild(cartControls);
         li.appendChild(spanPrice);
         li.appendChild(removeButton);
-        
 
+        checkCart()
 
     })
 })
@@ -98,12 +98,24 @@ addButton.forEach((botao)=>{
 // Configurando função do botão de remover itens do carrinho 
 const cartList = document.getElementById('cart-list')
 
-cartList.addEventListener('click', (botao)=>{
-    if (botao.target.classList.contains('remove-btn') === true){
+cartList.addEventListener('click', (botao) => {
+    if (botao.target.classList.contains('remove-btn') === true) {
         botao.target.parentElement.remove(botao)
+        checkCart()
     } else {
 
     }
-    
+
 })
 
+// Mensagem de carrinho vazio: hidden / visible
+
+const cartEmpty = document.getElementById('cart-empty')
+
+function checkCart() {
+    if (cartList.childElementCount > 0) {
+        cartEmpty.classList.add('hidden')
+    } else {
+        cartEmpty.classList.remove('hidden')
+    }
+}
