@@ -35,6 +35,7 @@ addButton.forEach((botao) => {
         const li = document.createElement('li')
         li.classList.add('cart-item')
         li.setAttribute('data-id', '1')
+        li.setAttribute('data-price', botao.parentElement.dataset.price)
 
         // Configurando os spans de preço e nome
         const spanNome = document.createElement('span')
@@ -91,7 +92,7 @@ addButton.forEach((botao) => {
 
         checkCart()
         atualizarContador()
-
+        atualizarTotal()
     })
 })
 
@@ -104,6 +105,7 @@ cartList.addEventListener('click', (botao) => {
         botao.target.parentElement.remove(botao)
         checkCart()
         atualizarContador()
+        atualizarTotal()
     } else {
 
     }
@@ -124,6 +126,27 @@ function checkCart() {
 
 // Função que atualiza o contador do carrinho 
 const cartCount = document.getElementById('cart-count')
-function atualizarContador(){
+function atualizarContador() {
     cartCount.textContent = cartList.childElementCount
+}
+
+// Função que calcula o total dos itens do carrinho e atualiza no rodapé do carrinho
+const cartTotal = document.getElementById('cart-total')
+const cartUl = document.querySelector('.cart-list')
+
+function atualizarTotal() {
+    let total = 0;
+
+    for (let item of cartUl.children) {
+        let valor = Number(item.dataset.price)
+        total += valor
+        cartTotal.innerText = `R$ ${total.toFixed(2)}`
+    }
+
+    if (cartUl.childElementCount === 0) {
+        let valorZerado = 0;
+        cartTotal.innerText = `R$ ${valorZerado}`
+    } else {
+        console.log('nada aconteceu')
+    }
 }
