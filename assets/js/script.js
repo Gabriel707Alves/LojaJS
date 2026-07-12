@@ -27,11 +27,73 @@ menuBtn.addEventListener('click', () => {
 // Selecionar botão de adicionar ao carrinho dos produtos
 const addButton = document.querySelectorAll('.add-btn')
 
-// Evento que adiciona elemento dinamico no carrinho
-addButton.forEach((botao) => {
-    botao.addEventListener("click", () => {
+// Array de objetos para puxar dados dos produtos
+const produtos = [
+    {
+        id: 1,
+        name: 'Fone Bluetooth',
+        category: 'audio',
+        price: 299.90,
+        amount: 1,
 
-        // Configurando o elemento pai
+    },
+    {
+        id: 2,
+        name: 'Teclado Mecânico',
+        category: 'tecnologia',
+        price: 459.90,
+        amount: 1,
+    },
+    {
+        id: 3,
+        name: 'Mouse Sem Fio',
+        category: 'tecnologia',
+        price: 189.90,
+        amount: 1,
+    },
+    {
+        id: 4,
+        name: 'Webcam HD',
+        category: 'tecnologia',
+        price: 349.90,
+        amount: 1,
+    },
+    {
+        id: 5,
+        name: 'Caixa de Som',
+        category: 'audio',
+        price: 399.90,
+        amount: 1,
+    },
+    {
+        id: 6,
+        name: 'Mousepad XL',
+        category: 'acessorios',
+        price: 89.90,
+        amount: 1,
+    },
+    {
+        id: 7,
+        name: 'Hub USB-C',
+        category: 'acessorios',
+        price: 159.90,
+        amount: 1,
+    },
+    {
+        id: 8,
+        name: 'Suporte Notebook',
+        category: 'acessorios',
+        price: 129.90,
+        amount: 1,
+    },
+]
+
+// Este é o array do carrinho, ele vai ser util para verificações de produtos
+let carrinho = []
+
+
+function renderizarCarrinho(){
+    // Configurando o elemento pai
         const li = document.createElement('li')
         li.classList.add('cart-item')
         li.setAttribute('data-id', '1')
@@ -89,10 +151,38 @@ addButton.forEach((botao) => {
         li.appendChild(cartControls);
         li.appendChild(spanPrice);
         li.appendChild(removeButton);
+}
 
-        checkCart()
-        atualizarContador()
-        atualizarTotal()
+// Evento que adiciona elemento dinamico no carrinho
+addButton.forEach((botao) => {
+    botao.addEventListener("click", () => {
+
+        // Procura o produto pelo ID do botão clicado
+        const produtoEncontrado = produtos.find(item => item.id == botao.parentElement.dataset.id)
+
+        // Verifica se existe o produto dentro do array carrinho
+        const verificarExistencia = carrinho.some(item => item.id == botao.parentElement.dataset.id)
+
+        // Se o produto não existir, adiciona no array carrinho, se existir aumenta a quantidade do item
+        if(verificarExistencia == false){
+            carrinho.push(produtoEncontrado)
+
+        }else if(verificarExistencia == true){
+            const produtoCarrinho = carrinho.find(item => item.id == botao.parentElement.dataset.id)
+            produtoCarrinho.amount++
+        }else{
+            console.log('Já Existe')
+        }
+        console.log(carrinho)
+
+
+        
+       
+        
+        // renderizarCarrinho()
+        // checkCart()
+        // atualizarContador()
+        // atualizarTotal()
     })
 })
 
