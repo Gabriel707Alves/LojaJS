@@ -91,20 +91,20 @@ const produtos = [
 // Este é o array do carrinho, ele vai ser util para verificações de produtos
 let carrinho = []
 
-
+// Função de renderizar os itens dinamicamente
 function renderizarCarrinho(){
-    // Configurando o elemento pai
+    cartList.innerHTML = ''
+    carrinho.forEach((item) =>{
+        // Configurando elemento LI 
         const li = document.createElement('li')
         li.classList.add('cart-item')
-        li.setAttribute('data-id', '1')
-        li.setAttribute('data-price', botao.parentElement.dataset.price)
-
+        li.setAttribute('data-id', item.id)
+        li.setAttribute('data-price', item.price)
+        
         // Configurando os spans de preço e nome
         const spanNome = document.createElement('span')
         spanNome.classList.add('cart-item-name')
-        spanNome.innerHTML = botao.parentElement.dataset.name
-
-
+        spanNome.innerText = item.name
 
         // Configurando os botões de controle do carrinho, incremento / decremento
         const cartControls = document.createElement('div')
@@ -114,34 +114,34 @@ function renderizarCarrinho(){
         const button_Decrease = document.createElement('button')
         button_Decrease.classList.add('qty-btn')
         button_Decrease.setAttribute('data-action', 'decrease')
-        button_Decrease.setAttribute('data-id', '1')
+        button_Decrease.setAttribute('data-id', item.id)
         button_Decrease.innerText = '-'
         cartControls.appendChild(button_Decrease);
-
+        
         // Span que mostra quantidade de itens
         const spanQty = document.createElement('span')
         spanQty.classList.add('cart-item-qty')
         spanQty.innerText = '1'
         cartControls.appendChild(spanQty);
-
+        
         // botão de incremento
         const button_Increase = document.createElement('button')
         button_Increase.classList.add('qty-btn')
         button_Increase.setAttribute('data-action', 'increase')
-        button_Increase.setAttribute('data-id', '1')
+        button_Increase.setAttribute('data-id', item.id)
         button_Increase.innerText = '+'
         cartControls.appendChild(button_Increase);
-
+        
         // Indicador de preço
         const spanPrice = document.createElement('span')
         spanPrice.classList.add('cart-item-price')
-        spanPrice.innerText = botao.parentElement.dataset.price
+        spanPrice.innerText = `R$ ${item.price}`
 
         // Botão de remover item do carrinho 
         const removeButton = document.createElement('button')
         removeButton.classList.add('remove-btn')
         removeButton.innerText = '🗑'
-        removeButton.setAttribute('data-id', botao.parentElement.dataset.id)
+        removeButton.setAttribute('data-id', item.id)
 
         // Elemento pai do carrinho
         const cartList = document.getElementById('cart-list')
@@ -151,6 +151,7 @@ function renderizarCarrinho(){
         li.appendChild(cartControls);
         li.appendChild(spanPrice);
         li.appendChild(removeButton);
+    })
 }
 
 // Evento que adiciona elemento dinamico no carrinho
@@ -166,23 +167,18 @@ addButton.forEach((botao) => {
         // Se o produto não existir, adiciona no array carrinho, se existir aumenta a quantidade do item
         if(verificarExistencia == false){
             carrinho.push(produtoEncontrado)
+            renderizarCarrinho()
 
         }else if(verificarExistencia == true){
             const produtoCarrinho = carrinho.find(item => item.id == botao.parentElement.dataset.id)
             produtoCarrinho.amount++
         }else{
-            console.log('Já Existe')
+            
         }
-        console.log(carrinho)
 
-
-        
-       
-        
-        // renderizarCarrinho()
-        // checkCart()
-        // atualizarContador()
-        // atualizarTotal()
+        checkCart()
+        atualizarContador()
+        atualizarTotal()
     })
 })
 
@@ -191,13 +187,14 @@ addButton.forEach((botao) => {
 const cartList = document.getElementById('cart-list')
 
 cartList.addEventListener('click', (botao) => {
+    console.log(botao)
     if (botao.target.classList.contains('remove-btn') === true) {
         botao.target.parentElement.remove(botao)
         checkCart()
         atualizarContador()
         atualizarTotal()
     } else {
-
+        console.log('Este item já existe no carrinho')
     }
 
 })
@@ -237,6 +234,6 @@ function atualizarTotal() {
         let valorZerado = 0;
         cartTotal.innerText = `R$ ${valorZerado}`
     } else {
-        console.log('nada aconteceu')
+
     }
 }
