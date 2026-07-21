@@ -187,14 +187,18 @@ addButton.forEach((botao) => {
 const cartList = document.getElementById('cart-list')
 
 cartList.addEventListener('click', (botao) => {
-    console.log(botao)
     if (botao.target.classList.contains('remove-btn') === true) {
+        carrinho = carrinho.filter(item => item.id !== Number(botao.target.dataset.id))
         botao.target.parentElement.remove(botao)
+
+        console.log(carrinho)
+
+        
         checkCart()
         atualizarContador()
         atualizarTotal()
     } else {
-        console.log('Este item já existe no carrinho')
+        
     }
 
 })
