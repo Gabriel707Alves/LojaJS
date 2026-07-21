@@ -12,7 +12,7 @@ Ao invés de focar apenas no visual, o projeto busca simular cenários reais de 
 
 Você pode visualizar o projeto clicando aqui:
 
-🔗 https://art-gallery-website-six.vercel.app/
+🔗 https://loja-js-two.vercel.app/
 
 ---
 
