@@ -191,9 +191,6 @@ cartList.addEventListener('click', (botao) => {
         carrinho = carrinho.filter(item => item.id !== Number(botao.target.dataset.id))
         botao.target.parentElement.remove(botao)
 
-        console.log(carrinho)
-
-        
         checkCart()
         atualizarContador()
         atualizarTotal()
@@ -226,18 +223,11 @@ const cartTotal = document.getElementById('cart-total')
 const cartUl = document.querySelector('.cart-list')
 
 function atualizarTotal() {
-    let total = 0;
 
-    for (let item of cartUl.children) {
-        let valor = Number(item.dataset.price)
-        total += valor
-        cartTotal.innerText = `R$ ${total.toFixed(2)}`
-    }
+    // Agora esta função de calcular o carrinho utiliza o método reduce() para facilitar o calculo do total do carrinho
+    const valorFinal = carrinho.reduce((acumulador, item) => {
+        return acumulador + item.price
+    }, 0)
 
-    if (cartUl.childElementCount === 0) {
-        let valorZerado = 0;
-        cartTotal.innerText = `R$ ${valorZerado}`
-    } else {
-
-    }
+    cartTotal.innerText = `R$ ${valorFinal.toFixed(2)}`
 }
