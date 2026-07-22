@@ -121,7 +121,7 @@ function renderizarCarrinho(){
         // Span que mostra quantidade de itens
         const spanQty = document.createElement('span')
         spanQty.classList.add('cart-item-qty')
-        spanQty.innerText = '1'
+        spanQty.innerText = item.amount
         cartControls.appendChild(spanQty);
         
         // botão de incremento
@@ -172,6 +172,7 @@ addButton.forEach((botao) => {
         }else if(verificarExistencia == true){
             const produtoCarrinho = carrinho.find(item => item.id == botao.parentElement.dataset.id)
             produtoCarrinho.amount++
+            renderizarCarrinho()
         }else{
             
         }
@@ -187,6 +188,8 @@ addButton.forEach((botao) => {
 const cartList = document.getElementById('cart-list')
 
 cartList.addEventListener('click', (botao) => {
+
+    // Remove o item do array e do DOM
     if (botao.target.classList.contains('remove-btn') === true) {
         carrinho = carrinho.filter(item => item.id !== Number(botao.target.dataset.id))
         botao.target.parentElement.remove(botao)
@@ -198,6 +201,30 @@ cartList.addEventListener('click', (botao) => {
         
     }
 
+
+    // Botão de controle de quantidade + e -
+    const cart_itemQty = document.querySelectorAll('.cart-item-qty')
+    const ObjEncontrado = carrinho.find(item => item.id == botao.target.dataset.id)
+
+    if (botao.target.dataset.action === 'increase'){
+        ObjEncontrado.amount++
+        renderizarCarrinho()
+    }else if(botao.target.dataset.action === 'decrease'){
+        ObjEncontrado.amount--
+        renderizarCarrinho()
+    }
+    
+    if(ObjEncontrado.amount === 0){
+        carrinho = carrinho.filter(item => item.id !== Number(botao.target.dataset.id))
+        renderizarCarrinho()
+        atualizarTotal()
+        atualizarContador()
+    } else{
+        
+    }
+
+    cart_itemQty.innerText = ObjEncontrado.amount
+    
 })
 
 // Mensagem de carrinho vazio: hidden / visible
